@@ -4,7 +4,10 @@ In this activity, you will set up GitHub CLI so that you can run GitHub commands
 
 # Setup
 
-The easiest way to install the GitHub CLI (gh) on macOS is with Homebrew. GitHub officially recommends this method. Run the following command to check if you have Homebrew: 
+The easiest way to install the GitHub CLI (gh) on macOS is with Homebrew. GitHub officially recommends this method. Run the following command to check if you have Homebrew:
+
+
+vvzzv
 
 ```
 brew --version
