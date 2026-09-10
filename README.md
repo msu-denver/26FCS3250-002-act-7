@@ -80,3 +80,4 @@ gh pr list
 ```
 
 Make sure your pull request appears in the output of gh pr list.
+Activity 7 completed by Yasemin
