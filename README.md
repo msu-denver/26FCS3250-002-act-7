@@ -80,7 +80,7 @@ gh pr create --base main --head feature/sam --title "Bla-bla" --body "Bla-bla...
 
 Joe reviews the pull request and authorize the merge to main using the GitHub web interface. 
 
-# Scenario 2: Open Source Collaboration
+## Scenario 2: Open Source Collaboration
 
 Joe creates a new GitHub repo, referred to as https://github.com/joe/repo. Joe clones their repo locally, adds a README.md file, commits and pushes the changes to the remote. 
 
