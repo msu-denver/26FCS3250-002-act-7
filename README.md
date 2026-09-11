@@ -51,32 +51,53 @@ gh auth status
 
 # Instructions
 
-Run the GitHub commands using gh. 
+Run GitHub basic commands using gh. 
 
-## List Repos
+* List Repos: **gh repo list**
+* Create a new public Repo: **gh repo create act-7 --public**
 
-```
-gh repo list
-```
+Now work on these two typical scenarios. 
 
-## Create a Repo
+## Scenario 1: Team Collaboration
 
-```
-gh repo create act-7 --public
-```
+Work with a classmate. Throughout this activity, the two students will be referred to as Joe and Sam.
 
-## Create a Pull Request 
+Joe creates a new GitHub repo, referred to as https://github.com/joe/repo. Joe clones their repo locally, adds a README.md file, commits and pushes the changes to the remote. 
 
-Before running the command below, create the ```feature/<YOUR_NAME>``` branch, stage a file, commit and push your changes. Replace ```<YOUR_NAME>``` with your name. For example, I would use ```feature/thyago-mota``` for my branch name. 
+Joe then protects protects the main branch using a branch protection rule (or ruleset, depending on the GitHub interface) and adds Sam as a collaborator with write access. 
 
-```
-gh pr create --base main --head feature/<YOUR_NAME> --title "Add bla-bla feature by <YOUR_NAME>" --body "My first pull request..."
-```  
-
-## List Pull Requests 
+Sam clones the repo and creates a new feature branch called **feature/sam**, adds a file to it, and commits the changes. Sam then pushes the feature branch to the remote using: 
 
 ```
-gh pr list
+git push origin feature/sam
 ```
 
-Make sure your pull request appears in the output of gh pr list.
+Sam then creates a pull request so the new feature can eventually be merged into the remote main branch. 
+
+```
+gh pr create --base main --head feature/sam --title "Bla-bla" --body "Bla-bla..."
+```
+
+Joe reviews the pull request and authorize the merge to main using the GitHub web interface. 
+
+# Scenario 2: Open Source Collaboration
+
+Joe creates a new GitHub repo, referred to as https://github.com/joe/repo. Joe clones their repo locally, adds a README.md file, commits and pushes the changes to the remote. 
+
+Joe then protects protects the main branch using a branch protection rule (or ruleset, depending on the GitHub interface). Joe does NOT add Sam as a collaborator. 
+
+Instead, Sam forks Joe's repository using the GitHub web interface. This creates a copy of the repository under Sam's GitHub account. Sam clones the forked repository locally and creates a new feature branch called **feature/sam**. Sam adds a file, commits the changes, and pushes the feature branch to their fork:
+
+```
+git push origin feature/sam
+```
+
+Sam then creates a pull request from the fork's **feature/sam** branch to Joe's main branch:
+
+```
+gh pr create --repo joe/repo --base main --head sam:feature/sam --title "Bla-bla" --body "Bla-bla..."
+```
+
+Joe reviews the pull request and authorize the merge to main using the GitHub web interface. 
+
+That's it!
